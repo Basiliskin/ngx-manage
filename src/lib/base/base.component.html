@@ -1,0 +1,18 @@
+<table  class="table  table-scroll">
+    <tr *ngFor="let data of values">
+        <ng-template 
+            [ngIf]="data.template" 
+            [ngTemplateOutlet]="data.template" 
+            [ngTemplateOutletContext]="{ $implicit: data.value }"
+          >
+        </ng-template>
+    </tr>
+</table>
+<div *ngIf="values.length==0 && error">
+    <ng-template 
+      [ngIf]="error" 
+      [ngTemplateOutlet]="error" 
+      [ngTemplateOutletContext]="{ $implicit: _value }"
+    >
+    </ng-template>
+</div>
